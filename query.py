@@ -1,4 +1,4 @@
-__import__('pysqlite3')
+# __import__('pysqlite3')
 import sys
 import streamlit as st
 from langchain.chains import create_retrieval_chain, create_history_aware_retriever
