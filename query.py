@@ -18,7 +18,7 @@ warnings.filterwarnings("ignore")
 
 load_dotenv()
 
-llm = ChatOpenAI(api_key=st.secrets["openai_api_key"])
+llm = ChatOpenAI(openai_api_key=st.secrets["openai_api_key"])
 chat_history = []
 
 
