@@ -1,3 +1,6 @@
+__import__('pysqlite3')
+import sys
+import streamlit as st
 from langchain.chains import create_retrieval_chain, create_history_aware_retriever
 from langchain_community.document_loaders import TextLoader
 from langchain_community.chat_models import ChatOpenAI
@@ -15,7 +18,7 @@ warnings.filterwarnings("ignore")
 
 load_dotenv()
 
-llm = ChatOpenAI()
+llm = ChatOpenAI(api_key=st.secrets["openai_api_key"])
 chat_history = []
 
 
@@ -51,7 +54,7 @@ qa_prompt = ChatPromptTemplate.from_messages(
 documents = TextLoader("./docs/faq.txt").load()
 text_splitter = CharacterTextSplitter(chunk_size=100, chunk_overlap=0, separator="\n")
 splits = text_splitter.split_documents(documents)
-db = Chroma.from_documents(documents, OpenAIEmbeddings())
+db = Chroma.from_documents(documents, OpenAIEmbeddings(api_key=st.secrets["openai_api_key"]))
 retriever = db.as_retriever()
 
 # Retrieve chat history
