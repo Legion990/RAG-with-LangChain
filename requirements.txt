@@ -1,12 +1,22 @@
+# --- Core LangChain + OpenAI (compatible set) ---
 langchain==0.2.14
 langchain-core==0.2.32
 langchain-community==0.2.12
 langchain-openai==0.1.22
 langchain-text-splitters==0.2.2
+
+# --- OpenAI client (latest stable) ---
 openai==1.40.3
+
+# --- RAG and utilities ---
 chromadb==0.5.3
+tiktoken==0.7.0
 python-dotenv==1.0.1
 colorama==0.4.6
-tiktoken==0.7.0
-streamlit==1.39.0
+
+# --- Streamlit (match Cloud version) ---
+streamlit==1.38.0
 streamlit-chat==0.1.1
+
+# --- Required for Streamlit logging ---
+rich<14.0
